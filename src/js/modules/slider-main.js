@@ -1,9 +1,8 @@
-export class Slider {
+import { Slider } from "./slider/slider";
+
+export class MainSlider extends Slider {
     constructor(page, btns) {
-        this.page = document.querySelector(page);
-        this.slides = Array.from(this.page.children);
-        this.btns = document.querySelectorAll(btns);
-        this.slideIndex = 1;
+        super(page, btns);
     }
 
     showSlides(n) {
