@@ -1,8 +1,8 @@
-import { Slider } from "./slider/slider";
+import { Slider } from "./slider";
 
 export class MainSlider extends Slider {
-    constructor(page, btns) {
-        super(page, btns);
+    constructor(btns) {
+        super(btns);
     }
 
     showSlides(n) {
@@ -43,6 +43,10 @@ export class MainSlider extends Slider {
         try {
             this.hanson = document.querySelector(".hanson");
         } catch (e) {}
+
+        if (!this.btns) {
+            return;
+        }
 
         this.btns.forEach((btn) => {
             btn.addEventListener("click", () => {
