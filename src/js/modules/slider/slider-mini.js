@@ -9,9 +9,16 @@ export class MiniSlider extends Slider {
         this.slides.forEach((slide) => {
             slide.classList.remove(this.activeClass);
             if (this.animate) {
-                slide.querySelector(".card__title").style.opacity = "0.4";
-                slide.querySelector(".card__controls-arrow").style.opacity =
-                    "0";
+                const cardTitle = slide.querySelector(".card__title");
+                if (cardTitle) {
+                    cardTitle.style.opacity = "0.4";
+                }
+                const cardControls = slide.querySelector(
+                    ".card__controls-arrow"
+                );
+                if (cardControls) {
+                    cardControls.style.opacity = "0";
+                }
             }
         });
 
@@ -20,10 +27,16 @@ export class MiniSlider extends Slider {
         }
 
         if (this.animate) {
-            this.slides[0].querySelector(".card__title").style.opacity = "1";
-            this.slides[0].querySelector(
+            const cardTitle = this.slides[0].querySelector(".card__title");
+            if (cardTitle) {
+                cardTitle.style.opacity = "1";
+            }
+            const cardControls = this.slides[0].querySelector(
                 ".card__controls-arrow"
-            ).style.opacity = "1";
+            );
+            if (cardControls) {
+                cardControls.style.opacity = "1";
+            }
         }
     }
 
